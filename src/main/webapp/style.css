@@ -1,0 +1,16 @@
+.container {
+    display: grid;
+    grid-template-columns: [line1] 40px [line2] 50px [line3] auto [line4] 50px [line5] 40px [end];
+    grid-template-rows: [row1] 25% [row2] 100px [row3] auto [lastrow];
+}
+.item item-1{
+    grid-column-start:2;
+    grid-column-end: 5;
+    grid-row-start:span 4;
+    grid-row-end: span 2;
+}
+tr {
+    border: 1px solid black;
+
+
+}

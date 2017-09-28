@@ -12,3 +12,7 @@ ex : 1 jewellers = .14 chaos 7/1
      but i want it to function like this web site
      http://currency.poe.trade/
 
+grid resources
+https://gridbyexample.com/examples/
+https://css-tricks.com/snippets/css/complete-guide-grid/
+

@@ -7,9 +7,12 @@
 
 
 
-
+html {
+    background-color: darkslategray;
+}
 
 .container {
+
     display:grid;
     grid-template-columns: repeat(12, 1fr);
     grid-template-rows: 20px 60px 40px auto;
@@ -24,12 +27,12 @@ div {
 /*grid-row-start + grid-column-start + grid-row-end + grid-column-end */
 .header {
 
-    background-color: blue;
+    background-color: gray;
     grid-area: 2/ 2 / 2 / 12;
 }
 .itemFieldContaner {
     display:grid;
-    background-color: blue;
+    background-color: gray;
     grid-column-gap: 10px;
     grid-row-gap: 10px;
     grid-template-columns: repeat(auto-fill, minmax(50px,1fr));
@@ -37,9 +40,9 @@ div {
     grid-area: 4 / 2 / 7 / 12;
 }
 .item {
-    background-color: orange;
+    background-color: black;
 }
 .linkBar {
-    background-color: blue;
+    background-color: gray;
     grid-area: 2 / 1 / 7 / 2;
 }

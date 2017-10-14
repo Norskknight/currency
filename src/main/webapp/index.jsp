@@ -13,26 +13,7 @@
     <div class="item"> </div>
     <div class="item"> </div>
     <div class="item"> </div>
-    <div class="item"> </div>
-    <div class="item"> </div>
-    <div class="item"> </div>
-    <div class="item"> </div>
-    <div class="item"> </div>
-    <div class="item"> </div>
-    <div class="item"> </div>
-    <div class="item"> </div>
-    <div class="item"> </div>
-    <div class="item"> </div>
-    <div class="item"> </div>
-    <div class="item"> </div>
-    <div class="item"> </div>
-    <div class="item"> </div>
-    <div class="item"> </div>
-    <div class="item"> </div>
-    <div class="item"> </div>
-    <div class="item"> </div>
-    <div class="item"> </div>
 </div>
-<div class="linkBar"></div>
+<div class="linkBar"><a href="login.jsp">Login</a></div>
 </body>
 </html>

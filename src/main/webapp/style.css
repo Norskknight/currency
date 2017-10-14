@@ -43,6 +43,7 @@ div {
     background-color: black;
 }
 .linkBar {
+    grid-template-columns: repeat(auto-fill, minmax(50px,1fr));
     background-color: gray;
     grid-area: 2 / 1 / 7 / 2;
 }

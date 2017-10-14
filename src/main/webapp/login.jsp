@@ -10,5 +10,6 @@
     <input type="text">
 
 </form>
+<a href="index.jsp">back</a>
 </body>
 </html>

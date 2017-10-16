@@ -4,4 +4,34 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+
+  <!-- Protect everything within the "investing" directory. -->
+  <security-constraint>
+    <web-resource-collection>
+      <web-resource-name>account</web-resource-name>
+      <url-pattern>/account.jsp</url-pattern>
+    </web-resource-collection>
+    <auth-constraint>
+      <role-name>administrator</role-name>
+    </auth-constraint>
+
+  </security-constraint>
+
+  <security-role>
+    <role-name>registered-user</role-name>
+  </security-role>
+
+  <security-role>
+    <role-name>administrator</role-name>
+  </security-role>
+
+  <!-- Tell the server to use form-based authentication. -->
+  <login-config>
+    <auth-method>FORM</auth-method>
+    <form-login-config>
+      <form-login-page>/login.jsp</form-login-page>
+      <form-error-page>/error.jsp</form-error-page>
+    </form-login-config>
+  </login-config>
 </web-app>
+

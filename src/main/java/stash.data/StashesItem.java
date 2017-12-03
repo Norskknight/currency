@@ -12,10 +12,10 @@ public class StashesItem{
 	private boolean jsonMemberPublic;
 
 	@JsonProperty("lastCharacterName")
-	private Object lastCharacterName;
+	private String lastCharacterName;
 
 	@JsonProperty("accountName")
-	private Object accountName;
+	private String accountName;
 
 	@JsonProperty("id")
 	private String id;
@@ -27,7 +27,7 @@ public class StashesItem{
 	private String stashType;
 
 	@JsonProperty("stash")
-	private Object stash;
+	private String stash;
 
 	public void setJsonMemberPublic(boolean jsonMemberPublic){
 		this.jsonMemberPublic = jsonMemberPublic;
@@ -37,19 +37,19 @@ public class StashesItem{
 		return jsonMemberPublic;
 	}
 
-	public void setLastCharacterName(Object lastCharacterName){
+	public void setLastCharacterName(String lastCharacterName){
 		this.lastCharacterName = lastCharacterName;
 	}
 
-	public Object getLastCharacterName(){
+	public String getLastCharacterName(){
 		return lastCharacterName;
 	}
 
-	public void setAccountName(Object accountName){
+	public void setAccountName(String accountName){
 		this.accountName = accountName;
 	}
 
-	public Object getAccountName(){
+	public String getAccountName(){
 		return accountName;
 	}
 
@@ -77,11 +77,11 @@ public class StashesItem{
 		return stashType;
 	}
 
-	public void setStash(Object stash){
+	public void setStash(String stash){
 		this.stash = stash;
 	}
 
-	public Object getStash(){
+	public String getStash(){
 		return stash;
 	}
 

@@ -24,6 +24,6 @@ public class ServiceClient {
         ObjectMapper mapper = new ObjectMapper();
         Response results = mapper.readValue(response, Response.class);
         StashesItem result = results.getStashes().get(3);
-        assertNotNull(result.getItems().get(1).toString(),result.getItems().get(1));
+        assertEquals("Leap Slam",result.getItems().get(1).getTypeLine());
     }
 }

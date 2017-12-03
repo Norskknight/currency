@@ -1,0 +1,97 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="stash.data.Response" table="Response">
+        <meta attribute="class-description">
+            This class contains the responce detail.
+        </meta>
+        <id name = "nextChangeId" type = "string" column = "changeID">
+            <generator class="native"/>
+        </id>
+        <list name = "stashes" cascade="all">
+            <key column = "responseID"/>
+            <list-index column = "StashIndexID"/>
+            <one-to-many class="stash.data.StashesItem"/>
+        </list>
+
+    </class>
+
+
+
+
+
+    <class name="stash.data.StashesItem" table="StashesItem">
+
+        <meta attribute = "class-description">
+            This class contains the stash detail.
+        </meta>
+
+        <id name = "id" type = "string" column = "ID">
+            <generator class="native"/>
+        </id>
+
+        <list name = "items" cascade="all">
+            <key column = "stashID"/>
+            <list-index column = "listID"/>
+            <one-to-many class="stash.data.ItemsItem"/>
+        </list>
+
+        <property name="accountName" column="accountName" type="string"/>
+        <property name="lastCharacterName" column="characterName" type="string"/>
+        <property name="stash" column="stash" type="string"/>
+        <property name="stashType" column="stashType" type="string"/>
+        <property name="jsonMemberPublic" column="public" type="byte"/>
+
+
+
+    </class>
+
+
+
+
+
+
+
+    <class name = "stash.data.ItemsItem" table = "ItemsItem">
+
+        <meta attribute = "class-description">
+            This class contains the item detail.
+        </meta>
+
+        <id name = "id" type = "string" column = "itemID">
+            <generator class="native"/>
+        </id>
+
+        <property name = "artFilename" column = "artFilename" type = "string"/>
+        <property name = "verified" column = "verified" type = "byte"/>
+        <property name = "w" column = "w" type = "int"/>
+        <property name = "h" column = "h" type = "int"/>
+        <property name = "ilvl" column = "ilvl" type = "int"/>
+        <property name = "icon" column = "icon" type = "string"/>
+        <property name = "league" column = "league" type = "string"/>
+        <property name = "name" column = "name" type = "string"/>
+        <property name = "typeLine" column = "typeLine" type = "string"/>
+        <property name = "identified" column = "identified" type = "byte"/>
+        <property name = "corrupted" column = "corrupted" type = "byte"/>
+        <property name = "lockedToCharacter" column = "lockedToCharacter" type = "byte"/>
+        <property name = "note" column = "note" type = "string"/>
+        <property name = "frameType" column = "frameType" type = "int"/>
+        <property name = "x" column = "x" type = "int"/>
+        <property name = "y" column = "y" type = "int"/>
+        <property name = "inventoryId" column = "inventoryId" type = "string"/>
+        <property name = "secDescrText" column = "secDescrText" type = "string"/>
+        <property name = "descrText" column = "descrText" type = "string"/>
+        <property name = "artFilename" column = "artFilename" type = "string"/>
+        <property name = "duplicated" column = "duplicated" type = "byte"/>
+        <property name = "maxStackSize" column = "maxStackSize" type = "int"/>
+        <property name = "stackSize" column = "stackSize" type = "int"/>
+        <property name = "talismanTier" column = "talismanTier" type = "int"/>
+        <property name = "support" column = "support" type = "byte"/>
+        <property name = "prophecyDiffText" column = "prophecyDiffText" type = "string"/>
+        <property name = "prophecyText" column = "prophecyText" type = "string"/>
+        <property name = "Relic" column = "isRelic" type = "byte"/>
+    </class>
+</hibernate-mapping>

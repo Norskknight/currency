@@ -1,5 +1,6 @@
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Test;
+import persistence.StashDao;
 import stash.data.*;
 
 import javax.validation.constraints.NotNull;
@@ -25,5 +26,16 @@ public class ServiceClient {
         Response results = mapper.readValue(response, Response.class);
         StashesItem result = results.getStashes().get(3);
         assertEquals("Leap Slam",result.getItems().get(1).getTypeLine());
+    }
+
+    @Test
+    public void getStashes() throws Exception {
+        StashDao dao = new StashDao();
+        assertEquals("anything",dao.getStashes());
+    }
+    @Test
+    public void getItems() throws Exception {
+        StashDao dao = new StashDao();
+        assertEquals("anything",dao.getItems());
     }
 }

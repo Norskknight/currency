@@ -26,9 +26,14 @@ public class ServiceClient {
         Response results = mapper.readValue(response, Response.class);
         return results;
     }
-
     @Test
-    public void listTest() throws Exception {
+    public void listItemsTest() throws Exception {
+        Response results = setUpJson();
+        int result = results.getStashes().get(3).getItems().size();
+        assertEquals(Integer.parseInt("15"),result);
+    }
+    @Test
+    public void listStashTest() throws Exception {
         Response results = setUpJson();
         int result = results.getStashes().size();
         assertEquals(Integer.parseInt("615"),result);

@@ -1,15 +1,14 @@
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.junit.Before;
+import entity.Response;
+import entity.StashesItem;
 import org.junit.Test;
 import persistence.StashDao;
-import stash.data.*;
+import entity.*;
 
-import javax.validation.constraints.NotNull;
 import javax.ws.rs.client.*;
 import javax.ws.rs.core.MediaType;
 
-
-import java.util.List;
 
 import static org.junit.Assert.*;
 
@@ -23,6 +22,7 @@ public class ServiceClient {
         String response = target.request(MediaType.APPLICATION_JSON).get(String.class);
 
         ObjectMapper mapper = new ObjectMapper();
+        mapper.enable(DeserializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY);
         Response results = mapper.readValue(response, Response.class);
         return results;
     }
@@ -49,11 +49,30 @@ public class ServiceClient {
     @Test
     public void getStashes() throws Exception {
         StashDao dao = new StashDao();
+        Response results = setUpJson();
         assertEquals("anything",dao.getStashes());
     }
     @Test
     public void getItems() throws Exception {
         StashDao dao = new StashDao();
+        Response results = setUpJson();
+        dao.insert(results);
         assertEquals("anything",dao.getItems());
+    }
+
+    @Test
+    public void insert() throws Exception {
+        StashDao dao = new StashDao();
+        Response results = setUpJson();
+        int data = dao.insert(results);
+        assertEquals("anything",data);
+    }
+
+    @Test
+    public void getResponse() throws Exception {
+        StashDao dao = new StashDao();
+        Response results = setUpJson();
+
+        assertEquals("2524-4457-4108-4844-1428",dao.getResponse().get(0).getNextChangeId());
     }
 }

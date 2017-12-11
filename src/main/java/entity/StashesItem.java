@@ -1,32 +1,50 @@
-package stash.data;
+package entity;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.annotation.Generated;
+import javax.persistence.*;
 import java.util.List;
-
+@Entity
+@Table(name = "StashesItem")
 @Generated("com.robohorse.robopojogenerator")
 public class StashesItem{
+	public StashesItem() {
+	}
 
+	@ManyToOne
+	@JoinColumn(name="ResponseID",nullable = false)
+	private Response response;
+
+	@Column(name = "public")
 	@JsonProperty("public")
 	private boolean jsonMemberPublic;
 
-	@JsonProperty("lastCharacterName")
+	@Column(name = "lastCharacterName")
+    @JsonProperty("lastCharacterName")
 	private String lastCharacterName;
 
-	@JsonProperty("accountName")
+	@Column(name = "accountName")
+    @JsonProperty("accountName")
 	private String accountName;
 
-	@JsonProperty("id")
+	@Id
+	@Column(name = "ID")
+    @JsonProperty("id")
 	private String id;
 
-	@JsonProperty("items")
+	@OneToMany(mappedBy="stashesItem")
+    @JsonProperty("items")
 	private List<ItemsItem> items;
 
-	@JsonProperty("stashType")
+
+	@Column(name = "stashType")
+    @JsonProperty("stashType")
 	private String stashType;
 
-	@JsonProperty("stash")
+
+	@Column(name = "stash")
+    @JsonProperty("stash")
 	private String stash;
 
 	public void setJsonMemberPublic(boolean jsonMemberPublic){
@@ -93,7 +111,7 @@ public class StashesItem{
 			",lastCharacterName = '" + lastCharacterName + '\'' + 
 			",accountName = '" + accountName + '\'' + 
 			",id = '" + id + '\'' + 
-			",items = '" + items + '\'' + 
+			",items = '" + "alot" + '\'' +
 			",stashType = '" + stashType + '\'' + 
 			",stash = '" + stash + '\'' + 
 			"}";

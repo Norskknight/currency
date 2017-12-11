@@ -10,7 +10,7 @@
 
         <!-- Database connection settings -->
         <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
-        <property name="connection.url">jdbc:mysql://localhost:3306/sample</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/userAccountdb</property>
         <property name="connection.username">root</property>
         <property name="connection.password">student</property>
 
@@ -21,9 +21,9 @@
         <property name="show_sql">true</property>
 
         <!-- List the annotated entity class/es -->
-        <mapping class="stash.data.Response"/>
-        <mapping class="stash.data.ItemsItem"/>
-        <mapping class="stash.data.StashesItem"/>
+        <mapping class="entity.Response"/>
+        <mapping class="entity.ItemsItem"/>
+        <mapping class="entity.StashesItem"/>
     </session-factory>
 
 </hibernate-configuration>

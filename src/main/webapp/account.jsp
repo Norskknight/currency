@@ -11,7 +11,10 @@
     <title>Account</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="container">
+<div class="header">Account Page</div>
+<div class="itemFieldContaner">
+
 
 add Item
 <form action="additem">
@@ -19,6 +22,7 @@ add Item
     <INPUT TYPE="SUBMIT" VALUE="add item">
 
 </form>
-<a href="index.jsp"></a>
+</div>
+<tags:links/>
 </body>
 </html>

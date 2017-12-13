@@ -20,7 +20,10 @@ html {
     grid-column-gap: 10px;
     grid-row-gap: 10px;
 }
-
+.childContaner{
+    grid-area: 4 / 2 / 7 / 12;
+    background-color: gray;
+}
 div {
 
 }

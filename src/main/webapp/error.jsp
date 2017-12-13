@@ -10,7 +10,11 @@
 <head>
     <title>Login Error</title>
 </head>
-<body>
-<a href="login.jsp">try again</a>
+<body class="container">
+<div class="header">Error</div>
+<div class="itemFieldContaner">
+    Use a different username
+</div>
+<tags:links/>
 </body>
 </html>

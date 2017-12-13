@@ -11,7 +11,11 @@
     <title>Signup</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="container">
+<div class="header">Signup Page</div>
+<div class="itemFieldContaner">
+
+
 <form action="RegisterServlet" method="POST">
     <table align="center" cellpadding = "10">
         <tr>
@@ -30,6 +34,7 @@
         </tr>
     </table>
 </form>
-<a href="index.jsp">back</a>
+</div>
+<tags:links/>
 </body>
 </html>

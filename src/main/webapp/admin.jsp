@@ -1,4 +1,4 @@
-<%--
+<%@ taglib prefix="tags" tagdir="/WEB-INF/tags" %><%--
   Created by IntelliJ IDEA.
   User: student
   Date: 12/12/17
@@ -9,8 +9,15 @@
 <html>
 <head>
     <title>admin</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
-
+<body class="container">
+<div class="header">Admin Page</div>
+<div class="childContaner">
+<form>
+    <input type="submit" value="grabData">
+</form>
+</div>
+<tags:links/>
 </body>
 </html>

@@ -33,6 +33,7 @@ public class RegisterServlet extends HttpServlet {
             out.println("<title>Registration Successful</title>");
             out.println("</head>");
             out.println("<body>");
+            out.println("<tags:links/>");
             out.println("<center>");
             if(result){
                 out.println("<h1>Thanks for Registering with us :</h1>");

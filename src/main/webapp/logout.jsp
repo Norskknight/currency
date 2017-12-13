@@ -11,15 +11,17 @@
     <link rel="stylesheet" href="style.css">
     <title>logout Page</title>
 </head>
-<body>
+<body class="container">
+
 <%
     session.removeAttribute("userId");
     session.removeAttribute("password");
     session.invalidate();
 %>
-<center>
+<div class="header">Logout</div>
+<div class="childContaner">
     <h1>You have successfully logged out</h1>
-    To login again <a href="account.jsp">click here</a>.
-</center>
+</div>
+<tags:links/>
 </body>
 </html>

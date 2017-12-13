@@ -122,7 +122,7 @@ public class StashDao {
         try {
             session = SessionFactoryProvider.getSessionFactory().openSession();
             Criteria allItems = session.createCriteria(ItemsItem.class);
-            Conjunction andExp = Restrictions.conjunction(Restrictions.like("frameType", 5),Restrictions.like("note", "%chaos%"),Restrictions.like("typeLine", "%Orb%"));
+            Conjunction andExp = Restrictions.conjunction(Restrictions.like("note", "%chaos%"),Restrictions.like("typeLine", orb));
             log.info(andExp);
             allItems.add(andExp);
             log.info(allItems);

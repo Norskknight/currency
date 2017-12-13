@@ -5,7 +5,11 @@
     <title>Login</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="container">
+<div class="header">Login Page</div>
+<div class="itemFieldContaner">
+
+
 <FORM ACTION="j_security_check" METHOD="POST">
     <TABLE>
         <TR><TD>User name: <INPUT TYPE="TEXT" NAME="j_username">
@@ -13,6 +17,7 @@
         <TR><TH><INPUT TYPE="SUBMIT" VALUE="Log In">
     </TABLE>
 </FORM>
-<a href="index.jsp">back</a>
+</div>
+<tags:links/>
 </body>
 </html>

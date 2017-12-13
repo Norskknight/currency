@@ -11,12 +11,17 @@
     <title>Item</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="container">
+<div class="header">item</div>
+<div class="itemFieldContaner">
+
+
 <p>item information displayed</p>
 <table>
 
 
 </table>
-<a href="index.jsp">back</a>
+</div>
+<tags:links/>
 </body>
 </html>

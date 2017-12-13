@@ -99,8 +99,6 @@ public class ServiceClient {
     public void testNewUser() throws Exception {
         UserDao dao = new UserDao();
         boolean id = dao.register(new User("testid","testpass"));
-
-
         assertNotNull("???",id);
     }
 

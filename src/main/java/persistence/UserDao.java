@@ -9,9 +9,10 @@ import org.hibernate.Transaction;
 public class UserDao {
 
     public boolean register(User user){
+
+        if(isUserExists(user)) return false;
         Transaction transaction = null;
         Session session = null;
-        if(isUserExists(user)) return false;
 
         try {
             session = SessionFactoryProvider.getSessionFactory().openSession();
@@ -27,25 +28,27 @@ public class UserDao {
             }
             e.printStackTrace();
         } finally {
+            assert session != null;
+            session.flush();
             session.close();
         }
         return true;
     }
 
     public boolean isUserExists(User user){
-        Session session = SessionFactoryProvider.getSessionFactory().openSession();
+        Session session = null;
         boolean result = false;
-        Transaction tx = null;
+        Transaction transaction = null;
         try{
-            tx = session.getTransaction();
-            tx.begin();
+            session = SessionFactoryProvider.getSessionFactory().openSession();
+            transaction = session.beginTransaction();
             Query query = session.createQuery("from User where userId='"+user.getUserId()+"'");
             User u = (User)query.uniqueResult();
-            tx.commit();
+            transaction.commit();
             if(u!=null) result = true;
         }catch(Exception ex){
-            if(tx!=null){
-                tx.rollback();
+            if(transaction!=null){
+                transaction.rollback();
             }
         }finally{
             session.close();

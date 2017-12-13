@@ -5,19 +5,7 @@
 <body class="container">
 <div class="header">title</div>
 <div class="itemFieldContaner">
-    <a class="item" href="item.jsp"></a>
-    <a class="item" href="item.jsp"></a>
-    <a class="item" href="item.jsp"></a>
-    <a class="item" href="item.jsp"></a>
-    <a class="item" href="item.jsp"></a>
-    <a class="item" href="item.jsp"></a>
-    <a class="item" href="item.jsp"></a>
-    <a class="item" href="item.jsp"></a>
-    <a class="item" href="item.jsp"></a>
-    <a class="item" href="item.jsp"></a>
-    <a class="item" href="item.jsp"></a>
-    <a class="item" href="item.jsp"></a>
-    <a class="item" href="item.jsp"></a>
+
 </div>
 <div class="linkBar">
     <a href="login.jsp">Login</a>

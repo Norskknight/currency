@@ -13,7 +13,7 @@ public class StashesItem{
 	}
 
 	@ManyToOne
-	@JoinColumn(name="ResponseID",nullable = false)
+	@JoinColumn(name="ResponseID")
 	private Response response;
 
 	@Column(name = "public")

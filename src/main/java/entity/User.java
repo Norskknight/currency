@@ -1,0 +1,55 @@
+package entity;
+
+
+import org.hibernate.annotations.GenericGenerator;
+
+import javax.persistence.*;
+import java.io.Serializable;
+
+@Entity
+@Table(name="users")
+public class User implements Serializable{
+
+    @Id
+    @GeneratedValue(generator = "increment")
+    @GenericGenerator(name="increment", strategy = "increment")
+    private Long id;
+    @Column(name = "user_name")
+    private String userId;
+    @Column(name = "user_pass")
+    private String password;
+
+    public User() {
+    }
+
+
+    public User(String userId, String password) {
+        this.userId = userId;
+        this.password = password;
+    }
+
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+}

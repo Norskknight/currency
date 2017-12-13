@@ -11,10 +11,23 @@
     <title>Signup</title>
 </head>
 <body>
-<form action="">
-    <input type="text">
-    <input type="text">
-    
+<form action="RegisterServlet" method="POST">
+    <table align="center" cellpadding = "10">
+        <tr>
+            <td>User name</td>
+            <td><input type="text" name="userId" maxlength="100" /></td>
+        </tr>
+        <tr>
+            <td>Password</td>
+            <td><input type="text" name="password" maxlength="100" /></td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center">
+                <input type="submit" value="Submit">
+                <input type="reset" value="Reset">
+            </td>
+        </tr>
+    </table>
 </form>
 <a href="index.jsp">back</a>
 </body>

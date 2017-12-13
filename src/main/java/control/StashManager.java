@@ -1,4 +1,4 @@
-package project.application;
+package control;
 
 public class StashManager {
 

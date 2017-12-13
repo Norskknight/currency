@@ -16,7 +16,7 @@ public class ItemsItem{
     }
 
     @ManyToOne
-    @JoinColumn(name="StashID", nullable = false)
+    @JoinColumn(name="StashID")
     private StashesItem stashesItem;
 
     @JsonProperty("verified")
@@ -116,9 +116,17 @@ public class ItemsItem{
     @Column(name = "y")
     private int y;
 
+    @JsonProperty("elder")
+    @Transient
+    private List<Object> elder;
+
     @JsonProperty("inventoryId")
     @Column(name = "inventoryId")
     private String inventoryId;
+
+    @JsonProperty("abyssJewel")
+    @Transient
+    private List<Object> abyssJewel;
 
     @JsonProperty("socketedItems")
     @Transient
@@ -163,6 +171,10 @@ public class ItemsItem{
     @JsonProperty("talismanTier")
     @Column(name = "talismanTier")
     private int talismanTier;
+
+    @JsonProperty("shaper")
+    @Transient
+    private ArrayList shaper;
 
     @JsonProperty("utilityMods")
     @Transient
@@ -530,6 +542,14 @@ public class ItemsItem{
 
     public void setRelic(boolean relic) {
         isRelic = relic;
+    }
+
+    public ArrayList getShaper() {
+        return shaper;
+    }
+
+    public void setShaper(ArrayList shaper) {
+        this.shaper = shaper;
     }
 
     @Override

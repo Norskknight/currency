@@ -1,5 +1,7 @@
 package persistence;
 
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.log4j.Logger;
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
@@ -8,6 +10,12 @@ import org.hibernate.Transaction;
 import entity.ItemsItem;
 import entity.Response;
 import entity.StashesItem;
+import org.hibernate.criterion.*;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.ws.rs.client.Client;
+import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.MediaType;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -67,35 +75,6 @@ public class StashDao {
      * @param response user to insert
      * @return id of the inserted user
      */
-
-    public int insertResponce(Response response) {
-        int id = 0;
-        Transaction transaction = null;
-        Session session = null;
-        try {
-            session = SessionFactoryProvider.getSessionFactory().openSession();
-            transaction = session.beginTransaction();
-            log.info("the response :"+response);
-            session.saveOrUpdate(response);
-            transaction.commit();
-            id++;
-            log.info(id);
-
-        } catch (HibernateException he){
-            if (transaction != null) {
-                try {
-                    transaction.rollback();
-                } catch (HibernateException he2) {
-                    log.error("Error rolling back save of user: " + response, he2);
-                }
-            }
-        } finally {
-            if (session != null) {
-                session.close();
-            }
-        }
-        return id;
-    }
     public int insert(Response response) {
         int id = 0;
         Transaction transaction = null;
@@ -105,7 +84,6 @@ public class StashDao {
             transaction = session.beginTransaction();
             session.saveOrUpdate(response);
             transaction.commit();
-
             for (StashesItem stash : response.getStashes()
                  ) {
                 transaction = session.beginTransaction();
@@ -117,11 +95,8 @@ public class StashDao {
                     transaction.commit();
                     id++;
                 }
-
                 id++;
             }
-
-
             log.info(id);
 
         } catch (HibernateException he){
@@ -141,5 +116,56 @@ public class StashDao {
         return id;
     }
 
+    public List<ItemsItem> getPriceOfOrb(String orb) {
+        List<ItemsItem> items = new ArrayList<ItemsItem>();;
+        Session session = null;
+        try {
+            session = SessionFactoryProvider.getSessionFactory().openSession();
+            Criteria allItems = session.createCriteria(ItemsItem.class);
+            Conjunction andExp = Restrictions.conjunction(Restrictions.like("frameType", 5),Restrictions.like("note", "%chaos%"),Restrictions.like("typeLine", "%Orb%"));
+            log.info(andExp);
+            allItems.add(andExp);
+            log.info(allItems);
+            items = allItems.list();
+        } catch (HibernateException he) {
+            log.error("Error getting all items", he);
+        } finally {
+            if (session != null) {
+                session.close();
+            }
+        }
+        return items;
+    }
+
+    public Response setUpJson(String id) throws Exception {
+        Client client = ClientBuilder.newClient();
+        WebTarget target =
+                client.target("http://www.pathofexile.com/api/public-stash-tabs?"+id);
+        String response = target.request(MediaType.APPLICATION_JSON).get(String.class);
+
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.enable(DeserializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY);
+        Response results = mapper.readValue(response, Response.class);
+        return results;
+    }
+
+    public String getLastChangeID() {
+        Response response = null;
+        Session session = null;
+        try {
+            session = SessionFactoryProvider.getSessionFactory().openSession();
+            Criteria allIDs = session.createCriteria(Response.class);
+            List ids = allIDs.list();
+            response = (Response)(ids.get(0));
+
+        } catch (HibernateException he) {
+            log.error("Error getting all items", he);
+        } finally {
+            if (session != null) {
+                session.close();
+            }
+        }
+        return response.getNextChangeId();
+    }
 
 }

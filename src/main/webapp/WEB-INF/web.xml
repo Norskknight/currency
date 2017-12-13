@@ -3,6 +3,16 @@
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
 <web-app>
+  <display-name>MVCApplication</display-name>
+  <servlet>
+    <display-name>RegisterServlet</display-name>
+    <servlet-name>RegisterServlet</servlet-name>
+    <servlet-class>control.RegisterServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RegisterServlet</servlet-name>
+    <url-pattern>/RegisterServlet</url-pattern>
+  </servlet-mapping>
   <display-name>Archetype Created Web Application</display-name>
 
   <!-- Protect everything within the "investing" directory. -->
@@ -13,10 +23,18 @@
     </web-resource-collection>
     <auth-constraint>
       <role-name>administrator</role-name>
+      <role-name>registered-user</role-name>
     </auth-constraint>
-
   </security-constraint>
-
+  <security-constraint>
+    <web-resource-collection>
+      <web-resource-name>admin</web-resource-name>
+      <url-pattern>/admin.jsp</url-pattern>
+    </web-resource-collection>
+    <auth-constraint>
+      <role-name>administrator</role-name>
+    </auth-constraint>
+  </security-constraint>
   <security-role>
     <role-name>registered-user</role-name>
   </security-role>

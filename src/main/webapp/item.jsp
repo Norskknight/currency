@@ -9,6 +9,7 @@
 <html>
 <head>
     <title>Item</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <p>item information displayed</p>

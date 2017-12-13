@@ -49,7 +49,7 @@ public class UserRole implements Serializable{
         return role;
     }
 
-    public void setRole(String password) {
-        this.role = password;
+    public void setRole(String role) {
+        this.role = role;
     }
 }

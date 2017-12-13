@@ -9,14 +9,14 @@
 <html>
 <head>
     <title>Account</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-add charictor
-<form action="">
+add Item
+<form action="additem">
     <input type="text">
-    
-    <button>not implemented</button>
+    <INPUT TYPE="SUBMIT" VALUE="add item">
 
 </form>
 <a href="index.jsp"></a>

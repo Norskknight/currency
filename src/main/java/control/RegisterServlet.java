@@ -39,7 +39,7 @@ public class RegisterServlet extends HttpServlet {
                 out.println("To login with new UserId and Password<a href=login.jsp>Click here</a>");
             }else{
                 out.println("<h1>Registration Failed</h1>");
-                out.println("To try again<a href=register.jsp>Click here</a>");
+                out.println("To try again<a href=signup.jsp>Click here</a>");
             }
             out.println("</center>");
             out.println("</body>");

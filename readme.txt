@@ -17,3 +17,30 @@ https://gridbyexample.com/examples/
 https://css-tricks.com/snippets/css/complete-guide-grid/
 
 http://18.221.211.244:8080/currency/
+
+
+https://www.youtube.com/watch?v=R07G_OiVULk&feature=youtu.be
+
+
+week one came up with idea
+week two came uo with useing css grid
+week three created web page template
+week four looked into json and how the api i needed works
+week five deployed a test site on aws
+week six added admin logging
+week seven ...
+week eight looked at pojo georation
+week nine did css grid
+week ten team project
+week eleven ...
+week twelve ...
+week thirteen   created pojo and jakckson imput of api data
+week fourteen
+created the daos that i use for hibernate
+created the hibernate structure
+
+week fifteen created the signup
+week sixteen created the user side of the project
+holding of the items that they want
+displaying the items on the page
+added tests for the users

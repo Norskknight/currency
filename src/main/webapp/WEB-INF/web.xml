@@ -9,6 +9,25 @@
     <servlet-name>RegisterServlet</servlet-name>
     <servlet-class>control.RegisterServlet</servlet-class>
   </servlet>
+  <servlet>
+    <display-name>RetreveItems</display-name>
+    <servlet-name>RetreveItems</servlet-name>
+    <servlet-class>control.RetreveItems</servlet-class>
+  </servlet>
+    <servlet>
+    <display-name>RetreveUserItems</display-name>
+    <servlet-name>RetreveUserItems</servlet-name>
+    <servlet-class>control.RetreveUserItems</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RetreveUserItems</servlet-name>
+        <url-pattern>/RetreveUserItems</url-pattern>
+    </servlet-mapping>
+    
+  <servlet-mapping>
+    <servlet-name>RetreveItems</servlet-name>
+    <url-pattern>/RetreveItems</url-pattern>
+  </servlet-mapping>
   <servlet-mapping>
     <servlet-name>RegisterServlet</servlet-name>
     <url-pattern>/RegisterServlet</url-pattern>

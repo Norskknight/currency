@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+import static java.util.Objects.isNull;
+
 @WebServlet(
         urlPatterns = {"/addItem"}
 )
@@ -25,10 +27,13 @@ public class UserItem extends HttpServlet {
         long userId = userDao.getUserId(user);
         log.info("user id"+userId);
         log.info("item "+item);
-        Useritems userItem = new Useritems(userId, item);
+        if (!isNull(item)) {
+            Useritems userItem = new Useritems(userId, item);
+            log.info(userItem);
+            userDao.addUserItem(userItem);
+        }
 
-        log.info(userItem);
-        userDao.addUserItem(userItem);
-
+        resp.sendRedirect("account.jsp");
     }
+
 }

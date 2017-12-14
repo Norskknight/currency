@@ -1,6 +1,6 @@
 package persistence;
 
-import control.UserItem;
+import entity.ItemsItem;
 import entity.User;
 import entity.UserRole;
 import entity.Useritems;
@@ -8,6 +8,9 @@ import org.apache.log4j.Logger;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class UserDao {
     private final Logger log = Logger.getLogger(this.getClass());
@@ -108,5 +111,52 @@ public class UserDao {
     return true;
     }
 
+    public List<ItemsItem> getUserItems(long userId){
+        List<ItemsItem> items = null;
+        Session session = null;
+        Transaction transaction = null;
+        StashDao stashDao = new StashDao();
+        List<ItemsItem> items2 = new ArrayList<>();
+        try {
+            session = SessionFactoryProvider.getSessionFactory().openSession();
+            transaction = session.beginTransaction();
 
+
+            Query query;
+            String queryText = "from Useritems where userid=" + userId;
+            query = session.createQuery(queryText);
+            log.info(query);
+            List Useritems = query.list();
+            log.info(Useritems);
+            transaction.commit();
+
+            for (Object userItem: Useritems) {
+                entity.Useritems itemname = (Useritems)userItem;
+
+                log.info(itemname);
+                String itemName = itemname.getItemname();
+                log.info(itemName);
+                transaction = session.beginTransaction();
+                Query query2;
+                String queryText2 ="from ItemsItem where note like '%chaos%' and typeLine like '%"+itemName+"%'";
+                query2 = session.createQuery(queryText2);
+                log.info(query2);
+                List itemsSelect = query2.list();
+                log.info(itemsSelect);
+                items2.addAll(itemsSelect);
+                log.info(items2);
+                transaction.commit();
+            }
+
+        } catch (Exception ex) {
+            if (transaction != null) {
+                transaction.rollback();
+            }
+        } finally {
+            session.close();
+
+        }
+        log.info(items2);
+        return items2;
+    }
 }

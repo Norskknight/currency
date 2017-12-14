@@ -3,10 +3,7 @@ package persistence;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.log4j.Logger;
-import org.hibernate.Criteria;
-import org.hibernate.HibernateException;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
+import org.hibernate.*;
 import entity.ItemsItem;
 import entity.Response;
 import entity.StashesItem;
@@ -79,6 +76,7 @@ public class StashDao {
         int id = 0;
         Transaction transaction = null;
         Session session = null;
+
         try {
             session = SessionFactoryProvider.getSessionFactory().openSession();
             transaction = session.beginTransaction();
@@ -119,14 +117,15 @@ public class StashDao {
     public List<ItemsItem> getPriceOfOrb(String orb) {
         List<ItemsItem> items = new ArrayList<ItemsItem>();;
         Session session = null;
+        Transaction transaction= null;
         try {
             session = SessionFactoryProvider.getSessionFactory().openSession();
-            Criteria allItems = session.createCriteria(ItemsItem.class);
-            Conjunction andExp = Restrictions.conjunction(Restrictions.like("note", "%chaos%"),Restrictions.like("typeLine", orb));
-            log.info(andExp);
-            allItems.add(andExp);
-            log.info(allItems);
-            items = allItems.list();
+            transaction = session.beginTransaction();
+
+            Query query = session.createQuery("from ItemsItem where note like '%chaos%' and typeLine like '%"+orb+"%'");
+            ItemsItem u = (ItemsItem) query.list();
+            transaction.commit();
+
         } catch (HibernateException he) {
             log.error("Error getting all items", he);
         } finally {

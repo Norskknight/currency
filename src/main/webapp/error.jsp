@@ -9,11 +9,11 @@
 <html>
 <head>
     <title>Login Error</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body class="container">
 <div class="header">Error</div>
 <div class="itemFieldContaner">
-    Use a different username
 </div>
 <tags:links/>
 </body>

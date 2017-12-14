@@ -27,7 +27,6 @@ public class ServiceClient {
         ObjectMapper mapper = new ObjectMapper();
         mapper.enable(DeserializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY);
         Response results = mapper.readValue(response, Response.class);
-        assertNotNull(results);
         return results;
     }
 
@@ -82,7 +81,7 @@ public class ServiceClient {
     @Test
     public void testPriceOfOrb()throws Exception {
         StashDao dao = new StashDao();
-        List price = dao.getPriceOfOrb("'%orb%'");
+        List price = dao.getPriceOfOrb("vaal");
         assertNotNull("???",price);
     }
 
@@ -112,7 +111,14 @@ public class ServiceClient {
     public void testAddItem() throws Exception {
         UserDao dao = new UserDao();
         Boolean adminId = dao.addUserItem(new Useritems((long) 1,"orb"));
-        assertEquals("???",adminId);
+        assertEquals(true,adminId);
+
+    }
+    @Test
+    public void testItemGetingForUser() throws Exception {
+        UserDao dao = new UserDao();
+        List<ItemsItem> items = dao.getUserItems(1);
+                assertNotNull("false",items);
 
     }
 }

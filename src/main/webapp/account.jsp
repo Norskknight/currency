@@ -1,10 +1,11 @@
-<%--
+<%@ taglib prefix="tags" tagdir="/WEB-INF/tags" %><%--
   Created by IntelliJ IDEA.
   User: student
   Date: 10/13/17
   Time: 11:47 PM
   To change this template use File | Settings | File Templates.
 --%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -14,11 +15,9 @@
 <body class="container">
 <div class="header">Account Page</div>
 <div class="itemFieldContaner">
-
-
 add Item
-<form action="additem">
-    <input type="text">
+<form action="addItem" method="POST">
+    <input name="item" type="text">
     <INPUT TYPE="SUBMIT" VALUE="add item">
 
 </form>

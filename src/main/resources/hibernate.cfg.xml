@@ -26,6 +26,7 @@
         <mapping class="entity.StashesItem"/>
         <mapping class="entity.User"/>
         <mapping class="entity.UserRole"/>
+        <mapping class="entity.Useritems"/>
     </session-factory>
 
 </hibernate-configuration>

@@ -9,7 +9,7 @@ ex : 1 jewellers = .14 chaos 7/1
 
      http://poe.ninja/challenge/currency
      this website is some idea of what it could look like
-     but i want it to function like this web site
+     but I want it to function like this web site
      http://currency.poe.trade/
 
 grid resources

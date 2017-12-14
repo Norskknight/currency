@@ -14,9 +14,13 @@
 <body class="container">
 <div class="header">Admin Page</div>
 <div class="childContaner">
-<form>
+<form action="grabData" method="get">
     <input type="submit" value="grabData">
 </form>
+    <form action="addAdminItem" method="POST">
+        <input type="text" name="item">
+        <input type="submit" value="addAdminItem">
+    </form>
 </div>
 <tags:links/>
 </body>

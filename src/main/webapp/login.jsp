@@ -1,3 +1,4 @@
+<%@ taglib prefix="tags" tagdir="/WEB-INF/tags" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +15,7 @@
     <TABLE>
         <TR><TD>User name: <INPUT TYPE="TEXT" NAME="j_username">
         <TR><TD>Password: <INPUT TYPE="PASSWORD" NAME="j_password">
-        <TR><TH><INPUT TYPE="SUBMIT" VALUE="Log In">
+        <TR><TH><INPUT TYPE="SUBMIT" VALUE="Log In" onclick="<%session.setAttribute("userId",session.getAttribute("j_username"));%>">
     </TABLE>
 </FORM>
 </div>

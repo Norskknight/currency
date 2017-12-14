@@ -1,4 +1,4 @@
-<%--
+<%@ taglib prefix="tags" tagdir="/WEB-INF/tags" %><%--
   Created by IntelliJ IDEA.
   User: student
   Date: 10/15/17

@@ -101,6 +101,18 @@ public class ServiceClient {
         boolean id = dao.register(new User("testid","testpass"));
         assertNotNull("???",id);
     }
+    @Test
+    public void testGetUserIdByName() throws Exception {
+        UserDao dao = new UserDao();
+        long adminId = dao.getUserId("admin");
+        assertEquals(1,adminId);
 
+    }
+    @Test
+    public void testAddItem() throws Exception {
+        UserDao dao = new UserDao();
+        Boolean adminId = dao.addUserItem(new Useritems((long) 1,"orb"));
+        assertEquals("???",adminId);
 
+    }
 }
